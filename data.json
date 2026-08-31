@@ -1,0 +1,32 @@
+{
+  "apps": [
+    {
+      "id": "1788110237687",
+      "name": "Ehs",
+      "description": "Fbdnd",
+      "version": "1.0.0",
+      "category": "أخرى",
+      "icon": "📱",
+      "file": "1788110237546-arabic-app-store-1.zip",
+      "original": "arabic-app-store-1.zip",
+      "size": 4566,
+      "downloads": 1,
+      "published": true,
+      "createdAt": "2026-08-30T17:17:17.694Z"
+    },
+    {
+      "id": "1788109928116",
+      "name": "زير",
+      "description": "رقر",
+      "version": "1.0.0",
+      "category": "أخرى",
+      "icon": "📱",
+      "file": "1788109926228-app-release__1_.apk",
+      "original": "app-release (1).apk",
+      "size": 130267466,
+      "downloads": 1,
+      "published": true,
+      "createdAt": "2026-08-30T17:12:08.116Z"
+    }
+  ]
+}

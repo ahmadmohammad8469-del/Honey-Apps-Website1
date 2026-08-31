@@ -1,0 +1,10 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>متجر تطبيقاتي</title><link rel="stylesheet" href="/style.css"></head><body>
+<header><div class="wrap nav"><a class="logo" href="/">📱 تطبيقاتي</a><a href="/admin.html" class="admin">لوحة التحكم</a></div></header>
+<main class="wrap"><section class="hero"><h1>متجر تطبيقاتك</h1><p>اكتشف التطبيقات التي ترفعها وحمّلها بسهولة.</p><input id="search" placeholder="ابحث عن تطبيق..."></section><div id="grid" class="grid"></div></main>
+<script>
+const grid=document.querySelector("#grid"),search=document.querySelector("#search");let apps=[];
+async function load(){apps=await (await fetch("/api/apps")).json();render()}
+function render(){let q=search.value.trim().toLowerCase();grid.innerHTML=apps.filter(a=>(a.name+" "+a.description).toLowerCase().includes(q)).map(a=>`<article class="card"><div class="icon">${a.icon||"📱"}</div><div><h3>${esc(a.name)}</h3><span>${esc(a.category)} · الإصدار ${esc(a.version)}</span><p>${esc(a.description)}</p><button onclick="download('${a.id}')">⬇ تحميل (${a.downloads})</button></div></article>`).join("")||"<p>لا توجد تطبيقات.</p>"}
+function esc(s=""){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function download(id){location.href="/api/apps/"+id+"/download"} search.oninput=render;load();
+</script></body></html>
